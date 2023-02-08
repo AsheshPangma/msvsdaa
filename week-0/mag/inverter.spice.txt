@@ -1,0 +1,28 @@
+V1 vin GND PWL(0 0 20n 0 900n 1.8)
+.save i(v1)
+V2 vdd GND 1.8
+.save i(v2)
+V3 VSUBS GND 0
+
+
+.lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+.control
+save all
+tran 1n 1u
+plot vin vout
+.endc
+
+*.subckt inverter vin vdd
+X0 vout vin VSUBS VSUBS sky130_fd_pr__nfet_01v8 ad=8.7e+11p pd=7.16e+06u as=0p ps=0u w=1.5e+06u l=180000u
+X1 vout vin vdd vdd sky130_fd_pr__pfet_01v8 ad=5.8e+11p pd=5.16e+06u as=0p ps=0u w=1e+06u l=180000u
+C0 VSUBS vdd 0.41fF
+C1 vdd vin 0.69fF
+C2 VSUBS vin 0.46fF
+C3 vdd VSUBS 1.19fF
+C4 vin VSUBS 0.61fF
+*C5 XM2/w_n214_n319# VSUBS 1.15fF **FLOATING
+*.ends
+
+.GLOBAL GND
+.end

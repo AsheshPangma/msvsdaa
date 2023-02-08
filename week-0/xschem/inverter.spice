@@ -1,1 +1,8 @@
+** sch_path: /home/asheshpangma/work/inverter/xschem/postlayout/inverter.sch
+.subckt inverter vin vout vss vdd
+*.PININFO vin:I vout:O vss:B vdd:B
+XM1 vout vin vss vss sky130_fd_pr__nfet_01v8 L=0.18 W=1.5 nf=1 m=1
+XM2 vout vin vdd vdd sky130_fd_pr__pfet_01v8 L=0.18 W=1 nf=1 m=1
+.ends
+.end
 
