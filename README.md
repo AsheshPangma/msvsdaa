@@ -2,6 +2,7 @@
 
 # WEEK-0
 
+
 To install xschem:
 ```
 $  git clone https://github.com/StefanSchippers/xschem.git xschem_git
@@ -49,6 +50,27 @@ pip install -e .
 pip install setuptools wheel pybind11 scikit-build cmake ninja
 pip install -v -e .[test] --no-build-isolation
 pip install -v --no-build-isolation -e . --no-deps --install-option='-DBUILD_TESTING=ON'
+```
+To make ALIGN portable to sky130 pdk:
+```
+$git clone https://github.com/ALIGN-analoglayout/ALIGN-pdk-sky130
+```
+
+
+To check if the installation is correct:
+```
+mkdir inverter
+$ cd inverter
+$ mkdir mag
+$ mkdir netgen
+$ mkdir xschem
+$ cd xschem
+$ cp /usr/local/share/pdk/sky130A/libs.tech/xschem/xschemrc .
+$ cp /usr/local/share/pdk/sky130A/libs.tech/ngspice/spinit .spiceinit
+$ cd ../mag
+$ cp /usr/local/share/pdk/sky130A/libs.tech/magic/sky130A.magicrc .magicrc
+$ cd ../netgen
+$ cp /usr/local/share/pdk/sky130A/libs.tech/netgen//sky130A_setup.tcl .
 ```
 
 ![](week-0/images/Week0-Inverter_schematic.png)
