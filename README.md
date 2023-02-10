@@ -153,3 +153,12 @@ Postlayout simulation requires us to extract a netlist from magic. The extractio
 ![](week-0/images/Week0-fn_postlayoutExtraction.png)
 
 
+
+
+
+
+
+# References
+
+* http://opencircuitdesign.com/
+
