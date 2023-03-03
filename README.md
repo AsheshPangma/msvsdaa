@@ -1,5 +1,12 @@
 # msvsdaa
 
+# Content
+
+- [WEEK-0](#week-0)
+- [WEEK-1](#week-1)
+- [WEEK-2](#week-2)
+- [WEEK-3](#week-3)
+
 # WEEK-0
 
 
@@ -243,7 +250,36 @@ The final layout of temperature sensor generator is shown below:
 
 # Week-3
 
- 
+ ## Ring Oscillator Circuit
+
+ A Ring-oscillator circuit generates clock like pulses without any external input. These are usually built using odd number of NOT gates. The output of the last inverter is fedback as the input and thus the output oscillates between tow voltage level.
+
+ ### Pre-layout simulation
+![](week-3/images/3_1.png)
+
+![](week-3/images/3_2.png)
+
+
+ ### Post-layout simulation using MAGIC
+![](week-3/images/3_3.png)
+
+![](week-3/images/3_4.png)
+
+
+
+ ### Post-layout simulation using ALIGN
+ ![](week-3/images/3_5.png)
+
+ GDS             |  LEF
+:----------------------------:|:-------------------------:
+![](week-3/images/3_6.png)  |  ![](week-3/images/3_7.png)
+
+![](week-3/images/3_8.png)
+
+![](week-3/images/3_9.png)
+
+
+
 
 
 # References
