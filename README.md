@@ -142,6 +142,107 @@ Then, a new spice file is generated. I again provided the input pulse and simula
 In conclusion, the waveform generated while performing pre-layout simulation and post-layout simulation are not exactly the same. In post-layout simulation, parasitic capacitence and resistance are also considered whereas in pre-layout simulation, parasitics are not considered and are connected using ideal wires which is not actually the case in real.
 
 Post-layout simulation using magic and ALIGN are also not exactly the same. ALIGN have lower parasitics effect than Magic. Thus, we observe more delay when performing post-layout simulation using Magic than ALIGN.
+
+
+# Week-2
+
+## OpenFASOC
+
+OpenFASOC is Fully Open-Source Autonomous SoC Synthesis using Customizable Cell-Based Synthesizable Analog Circuits. In OpenFASOC, we use other open-source tools such as Yosys, OpenROAD, Klayout, Magic and Ngspice. Thus, we also need to install all these tools.
+
+To install OpenFASOC:
+```
+git clone https://github.com/idea-fasoc/openfasoc
+cd openfasoc
+sudo ./dependencies.sh
+```
+
+#### Installing Yosys
+The packages necessary for Yosys are installed as follows:
+```
+sudo apt install -y clang bison flex \
+    libreadline-dev gawk tcl-dev libffi-dev git \
+    graphviz xdot pkg-config python3 libboost-system-dev \
+    libboost-python-dev libboost-filesystem-dev zlib1g-dev
+```
+To install Yosys:
+```
+git clone https://github.com/YosysHQ/yosys.git
+cd yosys
+make
+sudo make instal
+```
+#### Installing OpenROAD
+The packages necessary for Yosys are installed as follows:
+```
+sudo apt install -y cmake qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools \
+    libmng2 qt5-image-formats-plugins tcl-tclreadline \
+    swig libboost-all-dev libeigen3-dev libspdlog-dev
+```
+To install OpenROAD:
+```
+cd
+git clone --recursive https://github.com/The-OpenROAD-Project/OpenROAD.git
+cd OpenROAD
+./etc/DependencyInstaller.sh
+cd
+git clone --recursive https://github.com/The-OpenROAD-Project/OpenROAD-flow-scripts
+cd OpenROAD-flow-scripts
+./build_openroad.sh –local
+export OPENROAD=~/OpenROAD-flow-scripts/tools/OpenROAD
+export PATH=~/OpenROAD-flow-scripts/tools/install/OpenROAD/bin:~/OpenROAD-flow-scripts/tools/install/yosys/bin:~/OpenROAD-flow-scripts/tools/install/LSOracle/bin:$PATH
+```
+The installation took about an hour.
+
+
+### OpenFASOC : Temperature Sensor Generator
+
+Here, we run a test design which is a Temperature Sensor Generator (temp-sense-gen) to get an overview of the operating process of OpenFASOC. 
+For temperature sensor generator, the physical implementation of the analog blocks in the circuit is done using two manually designed standard cells, they are
+1. HEADER cell, containing the transistors in subthreshold operation
+2. SLC cell, containing the Split-Control Level Converter
+We should be aware that the gds and lef files for HEADER andSLC are pre-created before the start of the Generator flow.
+
+The HEADER.gds is shown below:
+![](week-2/images/2_1.png)
+And, the SLC.gds is shown below:
+![](week-2/images/2_2.png)
+These files are present in 'openfasoc/openfasoc/generators/temp-sense-gen/blocks/sky130hd/gds'
+
+#### Verilog Generation
+To run verilog generation, in temp-sense-gen directory type
+```
+make sky130hd_temp_verilog
+```
+![](week-2/images/2_3.png)
+![](week-2/images/2_4.png)
+You may encounter error if you have not set PDK_ROOT. 
+
+The test.json file is an input for verilog generation.
+
+After successfully installing OpenFASCO, change the directory to 'temp-sense-gen' directory and run the following command:
+```
+make sky130hd_temp_verilog
+```
+This creates counter.v, TEMP_ANALOG_hv.nl.v, TEP_ANALOG_lv.nl.v files in src folder. 
+
+#### OpenROAD Flow
+
+The OpenROAD flow requires the generated verilog files and also 'config.mk' file. This file is present in tempsense directory. 
+To run the OpenROAD flow
+```
+make sky130hd_temp
+```
+![](week-2/images/2_5.png)
+![](week-2/images/2_6.png)
+This should be kept in mind that this command performs full flow from verilog generation to final GDSII.
+The results are obtained in '/openfasoc/openfasoc/generators/temp-sense-gen/flow/results/sky130hd/temperature' directory.
+
+The final layout of temperature sensor generator is shown below:
+![](week-2/images/2_7.png)
+
+# Week-3
+
  
 
 
