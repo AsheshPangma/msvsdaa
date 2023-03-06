@@ -1,13 +1,15 @@
-# msvsdaa
+# VLSI System Design (VSD) - Research Program
+This repository is a record of all the task being performed in 10 weeks VSD-Research Program.
 
 # Content
 
-- [WEEK-0](#week-0)
 - [WEEK-1](#week-1)
 - [WEEK-2](#week-2)
 - [WEEK-3](#week-3)
+- [WEEK-4](#week-4)
+- [WEEK-5](#week-5)
 
-# WEEK-0
+# WEEK-1
 
 
 To install xschem:
@@ -115,7 +117,7 @@ Thus, the difference delay observed when comparing pre-layout simulation with po
 
 
 
-# Week-1
+# Week-2
 
 ## Prelayout and Postlayout simulation of a function Fn = [(B+D).(A+C)+E.F]'
 
@@ -151,7 +153,7 @@ In conclusion, the waveform generated while performing pre-layout simulation and
 Post-layout simulation using magic and ALIGN are also not exactly the same. ALIGN have lower parasitics effect than Magic. Thus, we observe more delay when performing post-layout simulation using Magic than ALIGN.
 
 
-# Week-2
+# Week-3
 
 ## OpenFASOC
 
@@ -201,6 +203,15 @@ export PATH=~/OpenROAD-flow-scripts/tools/install/OpenROAD/bin:~/OpenROAD-flow-s
 ```
 The installation took about an hour.
 
+After installation, I ran the OpenROAD flow on a design (ibex) using sky130hd pdk to test if it is working correctly. The following screenshot shows the flow.
+
+![](week-2/images/2_8.png)
+
+![](week-2/images/2_8.png)
+
+The screenshot below shows the layout of the design (ibex) after complete OpenROAD flow. The flow took my system almost an hour.
+![](week-2/images/2_8.png)
+
 
 ### OpenFASOC : Temperature Sensor Generator
 
@@ -248,7 +259,7 @@ The results are obtained in '/openfasoc/openfasoc/generators/temp-sense-gen/flow
 The final layout of temperature sensor generator is shown below:
 ![](week-2/images/2_7.png)
 
-# Week-3
+# Week-4
 
  ## Ring Oscillator Circuit
 
@@ -277,6 +288,9 @@ The final layout of temperature sensor generator is shown below:
 ![](week-3/images/3_8.png)
 
 ![](week-3/images/3_9.png)
+
+
+# Week-5
 
 
 
