@@ -298,9 +298,9 @@ The final layout of temperature sensor generator is shown below:
 
 # References
 
-* [Open Circuit Design](https://http://opencircuitdesign.com/)
+* [Open Circuit Design](https://opencircuitdesign.com/)
 
 # Acknowledgement
 
 * Kunal Ghosh, Founder [VLSI System Design](https://www.vlsisystemdesign.com/)
-* Tim Edwards, [Open Circuit Design](https://http://opencircuitdesign.com/)
+* Tim Edwards, [Open Circuit Design](https://opencircuitdesign.com/)
