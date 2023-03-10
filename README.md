@@ -292,15 +292,29 @@ The final layout of temperature sensor generator is shown below:
 
 # Week-5
 
+### 1-bit ADC (Analog to Digital Converter)
+
+A simple op-amp is used a comparator to achieve the functionality of a 1-bit ADC. ADC are used to convert the analog signal to digital signal. The schematic of the design is shown by the screenshot below. 
+
+#### working
+
+We supply a reference voltage (Vref) and a pulse as input to the circuit. If the input pulse goes above the reference voltage then the output is high '1' and if the pulse goes below the reference voltage then the output is low '0'.
+
+![](week-5/images/5_1.png)
+
+We then simulate the schematic using a sine wave with frequency of 50MHz, the following waveform is obtained which shows input voltage, reference voltage and the output voltage.
+
+![](week-5/images/5_2.png)
 
 
 
 
 # References
 
-* [Open Circuit Design](https://opencircuitdesign.com/)
+* [Open Circuit Design](http://opencircuitdesign.com/)
+* [OpanFASOC](https://github.com/idea-fasoc/OpenFASOC/)
 
 # Acknowledgement
 
 * Kunal Ghosh, Founder [VLSI System Design](https://www.vlsisystemdesign.com/)
-* Tim Edwards, [Open Circuit Design](https://opencircuitdesign.com/)
+* Tim Edwards, [Open Circuit Design](http://opencircuitdesign.com/)
