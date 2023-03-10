@@ -294,7 +294,7 @@ The final layout of temperature sensor generator is shown below:
 
 ### 1-bit ADC (Analog to Digital Converter)
 
-A simple op-amp is used a comparator to achieve the functionality of a 1-bit ADC. ADC are used to convert the analog signal to digital signal. The schematic of the design is shown by the screenshot below. 
+A simple op-amp is used as a comparator to achieve the functionality of a 1-bit ADC. ADC are used to convert the analog signal to digital signal. The schematic of the design is shown by the screenshot below. 
 
 #### working
 
@@ -319,6 +319,8 @@ Then we generate the post-layout netlist using magic. The generated netlist is t
 ![](week-5/images/5_5.png)
 
 ### OpenFASOC
+
+The auxiliary cells for ring-oscillator and 1-bit ADC is obtained from the previous ALIGN flow. In addition to these auxiliary cells, we also need to provide dummy verilog files that defines the connection between the components.
 
 
 
