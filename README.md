@@ -325,6 +325,7 @@ The auxiliary cells for ring-oscillator and 1-bit ADC is obtained from the previ
 <details open>
 <summary>Verilog file for asynchronous up/down counter</summary>
 <br>
+```
 module analog_async_up_down(
     input ro_i,
     input vref_i,
@@ -345,6 +346,7 @@ adc adc_0(
 );
 
 endmodule
+```
 </details>
 
 
