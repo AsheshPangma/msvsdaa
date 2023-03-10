@@ -306,6 +306,20 @@ We then simulate the schematic using a sine wave with frequency of 50MHz, the fo
 
 ![](week-5/images/5_2.png)
 
+### Post-layout simulation using ALIGN
+
+ALIGN takes spice netlist file as input to generate the layout. After successful ALIGN run, The following gds and lef file are obtained.
+
+ GDS             |  LEF
+:----------------------------:|:-------------------------:
+![](week-5/images/5_3.png)  |  ![](week-5/images/5_4.png)
+
+Then we generate the post-layout netlist using magic. The generated netlist is then edited to provide input voltages. The following waveform is obtained after simulation which seems incorrect. Thus, it is necessary to re re-run the flow and repeat the process.
+
+![](week-5/images/5_5.png)
+
+### OpenFASOC
+
 
 
 
