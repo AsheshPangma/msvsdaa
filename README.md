@@ -322,12 +322,9 @@ Then we generate the post-layout netlist using magic. The generated netlist is t
 
 The auxiliary cells for ring-oscillator and 1-bit ADC is obtained from the previous ALIGN flow. In addition to these auxiliary cells, we also need to provide dummy verilog files that defines the connection between the components.
 
-<details>
-<summary>Verilog file for asynchronous up/down counter</summary>
-<br>
-
+#### Verilog file for asynchronous up/down counter
+``` verilog
 module analog_async_up_down(
-    input ro_i,
     input vref_i,
     output adc_o
 );
@@ -335,7 +332,6 @@ module analog_async_up_down(
 wire osc_o;
 
 ring_osc ring_osc_0(
-    .in(ro_i),
     .out(osc_o)
 );
 
@@ -346,7 +342,28 @@ adc adc_0(
 );
 
 endmodule
-</details>
+```
+#### Verilog file for Ring oscillator
+```verilog
+module adc(
+    input vin,
+    input vref,
+
+    output out
+);
+
+endmodule
+```
+
+#### Verilog file for 1-bit Analog to Digital converter
+```verilog
+module ring_osc(
+    output clk_o
+);
+
+endmodule
+```
+
 
 
 # References
