@@ -365,14 +365,3 @@ module ring_osc(
 endmodule
 ```
 
-
-
-# References
-
-* [Open Circuit Design](http://opencircuitdesign.com/)
-* [OpanFASOC](https://github.com/idea-fasoc/OpenFASOC/)
-
-# Acknowledgement
-
-* Kunal Ghosh, Founder [VLSI System Design](https://www.vlsisystemdesign.com/)
-* Tim Edwards, [Open Circuit Design](http://opencircuitdesign.com/)
