@@ -112,7 +112,8 @@ waveform |  Values
 
 The output reaches 50% in 411.97ns.
 
-Thus, the difference delay observed when comparing pre-layout simulation with post layout simulation using magic is 1.13ns. And when compared to post layout simulation using ALIGN is 22.72ns.
+### Week-1 Conclusion
+Thus, the difference in delay observed when comparing pre-layout simulation with post layout simulation using magic is 1.13ns. And when compared to post layout simulation using ALIGN is 22.72ns. The delay is caused due to parasitics in the circuit.
 
 
 
@@ -147,7 +148,7 @@ Then, a new spice file is generated. I again provided the input pulse and simula
 
 ![](week-2/images/Week1-6_postLayoutSimulationAlign.png)
 
-### Week-1 Conclusion
+### Week-2 Conclusion
 In conclusion, the waveform generated while performing pre-layout simulation and post-layout simulation are not exactly the same. In post-layout simulation, parasitic capacitence and resistance are also considered whereas in pre-layout simulation, parasitics are not considered and are connected using ideal wires which is not actually the case in real.
 
 Post-layout simulation using magic and ALIGN are also not exactly the same. ALIGN have lower parasitics effect than Magic. Thus, we observe more delay when performing post-layout simulation using Magic than ALIGN.
