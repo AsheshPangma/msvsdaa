@@ -323,6 +323,17 @@ Then we generate the post-layout netlist using magic. The generated netlist is t
 
 The auxiliary cells for ring-oscillator and 1-bit ADC is obtained from the previous ALIGN flow. In addition to these auxiliary cells, we also need to provide dummy verilog files that defines the connection between the components.
 
+Now, we connect the Ring oscillator and the ADC together as shwn in the schematic below and verify that the combination gives correct output. For this, symbols for both Ring oscillator and the ADC  are created and connected. The simulation source and the library file for typical corner are also mentioned.
+
+![](week-5/images/5_6.png)
+
+After simulaition using NGspice, the following waveform is obtained. 
+Note: It is necessary to adjust the frequency of the Ring oscillator to get the correct output as the ADC cannot work properly in high frequency.
+
+![](week-5/images/5_7.png)
+
+
+
 #### Verilog file for asynchronous up/down counter
 ``` verilog
 module analog_async_up_down(
